@@ -39,7 +39,9 @@ class SurveyController extends Controller
      */
     public function store(StoreSurveyRequest $request)
     {
+        \Log::info('Validating...');
         $data = $request->validated();
+        \Log::info('Validation successful.');
 
         // Check if image was given and save on local file system
         if (isset($data['image'])) {
